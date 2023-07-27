@@ -23,23 +23,37 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    int k;
+    cin >> k;
+    string s;
+    cin >> s;
+    mci m;
+    for(int i=0;i<s.size();i++)
+    m[s[i]]++;
+    bool divByK = true;
+    for(auto x : m)
     {
-        ans++;
-        if(k*ans % 10 == r)
+        if(x.second % k != 0)
         {
-            cout << ans << nline;
+            cout << -1 << nline;
             return;
         }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
-        }
+
     }
+
+    string a ="";
+    for(auto x : m)
+    {
+        int cur = (x.second)/k;
+        while(cur--)
+        a+=x.first;
+    }
+
+    for(int i=0;i<k;i++)
+    cout << a;
+    cout << nline;
+    
+
 }
 
 int main(){

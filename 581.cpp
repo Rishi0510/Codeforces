@@ -23,23 +23,12 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
-    {
-        ans++;
-        if(k*ans % 10 == r)
-        {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
-        }
-    }
+    int a,b;
+    cin >> a >> b;
+    int days = min(a,b);
+    int nopair = max(a,b)-days;
+    nopair = nopair/2;
+    cout << days << " " << nopair << nline;
 }
 
 int main(){

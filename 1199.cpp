@@ -23,20 +23,34 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    int n,x,y;
+    cin >> n >> x >> y;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    cin >> arr[i];
+    for(int i=0;i<n;i++)
     {
-        ans++;
-        if(k*ans % 10 == r)
+        bool flag = true;
+        for(int j=max(0,i-x);j<i;j++)
         {
-            cout << ans << nline;
-            return;
+            if(arr[i] >= arr[j])
+            {
+                flag = false;
+                break;
+            }
         }
-        if(k*ans%10 == 0)
+        for(int j=i+1;j <= min(n-1,i+y);j++)
         {
-            cout << ans << nline;
+            if(arr[i] >= arr[j])
+            {
+                flag = false;
+                break;
+            }
+        }
+
+        if(flag)
+        {
+            cout << i + 1 << nline;
             return;
         }
     }

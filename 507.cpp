@@ -23,23 +23,33 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    int n,k;
+    cin >> n >> k;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    cin >> arr[i];
+
+    vector<pair<int,int>>v;
+    for(int i=0;i<n;i++)
+    v.pb(make_pair(arr[i],i));
+
+    sort(v.begin(),v.end());
+    int cnt =0, sum=0;
+    vi ans;
+    for(int i=0;i<v.size();i++)
     {
-        ans++;
-        if(k*ans % 10 == r)
+        sum+=v[i].first;
+        if(sum <= k)
         {
-            cout << ans << nline;
-            return;
+            cnt++;
+            ans.pb(v[i].second + 1);
         }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
-        }
-    }
+    }    
+
+    cout << cnt << nline;
+    for(int i=0;i<ans.size();i++)
+    cout << ans[i] << " ";
+    cout << nline;  
 }
 
 int main(){

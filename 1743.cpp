@@ -21,28 +21,26 @@ int gcd(int a, int b)
     if (a == 0) return b;  if (b == 0) return a; if (a == b) return a; if (a > b) return gcd(a-b, b); else return gcd(a, b-a);
 }
 
-void achojayebas()
+void achojayebas() 
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
-    {
-        ans++;
-        if(k*ans % 10 == r)
-        {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
-        }
-    }
+    // abab -> 4!/2! but selection -> nc2*4!/2! = 3*(n-1)*n;
+    int a;
+    cin >> a;
+    int arr[a];
+    for(int i=0;i<a;i++)
+    cin >> arr[i];
+
+    int n = 10-a;
+    cout << 3*(n-1)*n << endl;
+
 }
 
 int main(){
-    achojayebas();
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        achojayebas();
+    }
     return 0;
 }

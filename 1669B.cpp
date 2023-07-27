@@ -23,26 +23,33 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    int n;
+    cin >> n;
+    int arr[n];
+    mii m;
+    for(int i=0;i<n;i++)
     {
-        ans++;
-        if(k*ans % 10 == r)
+        cin >> arr[i];
+        m[arr[i]]++;
+    }
+
+    for(auto x : m)
+    {
+        if(x.second >= 3)
         {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
+            cout << x.first << nline;
             return;
         }
     }
+    cout << -1 << nline;
 }
 
 int main(){
-    achojayebas();
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        achojayebas();
+    }
     return 0;
 }

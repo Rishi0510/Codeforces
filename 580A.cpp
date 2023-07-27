@@ -1,6 +1,8 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 #define rep(i,a,b) for(int i=a;i<b;i++)
+#define fr(i,n) rep(i,0,n)
 #define ll long long 
 #define pb(x) push_back(x)
 #define in(x) int x; cin>>x;
@@ -23,23 +25,31 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    int n;
+    cin >> n;
+    int arr[n];
+    fr(i,n)
+    cin >> arr[i];
+    
+    int cnt = 1,maxi=cnt;
+    for(int i=0;i<n-1;i++)
     {
-        ans++;
-        if(k*ans % 10 == r)
+        // debug(i);
+        if(arr[i] <= arr[i+1])
         {
-            cout << ans << nline;
-            return;
+            // debug(cnt);
+            cnt++;
+            maxi = max(cnt,maxi);
+            // debug(maxi);
         }
-        if(k*ans%10 == 0)
+        else
         {
-            cout << ans << nline;
-            return;
+            cnt = 1;
+            maxi = max(cnt,maxi);
         }
     }
+    
+    cout << maxi << nline;
 }
 
 int main(){

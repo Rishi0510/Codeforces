@@ -23,26 +23,16 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
-    {
-        ans++;
-        if(k*ans % 10 == r)
-        {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
-        }
-    }
+    int n;
+    cin >> n;
+    // n =6
+    // 15 24 37 46
 }
 
 int main(){
+    int t;
+    cin >> t;
+    while(t--)
     achojayebas();
     return 0;
 }

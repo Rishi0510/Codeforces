@@ -23,26 +23,29 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    int n;
+    cin >> n;
+    int mid,temp=n;
+    vector<pair<int,int>>v;
+    for(int i=n-1;i>=1;i--)
     {
-        ans++;
-        if(k*ans % 10 == r)
-        {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
-        }
+        v.pb(make_pair(i,temp));
+        mid = ((temp+i+1)/2); // ceil was not workking because temp was INT, and it arleady got convertdd to an integer.
+        // debug(mid);
+        temp = mid;
+        // debug(temp);
     }
+    cout << temp << nline;
+    for(int i=0;i<v.size();i++)
+    cout << v[i].first << " " << v[i].second << nline;
 }
 
 int main(){
-    achojayebas();
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        achojayebas();
+    }
     return 0;
 }

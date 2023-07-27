@@ -23,26 +23,28 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    int n;
+    cin >> n;
+    int arr[n];
+    int mini = INT_MAX, maxi = INT_MIN;
+    for(int i =0;i<n;i++)
     {
-        ans++;
-        if(k*ans % 10 == r)
-        {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
-        }
+        cin >> arr[i];
+        if(arr[i] > maxi)
+        maxi = arr[i];
+        if(arr[i] < mini)
+        mini = arr[i];
     }
+
+    cout << maxi-mini << nline;
 }
 
 int main(){
-    achojayebas();
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        achojayebas();
+    }
     return 0;
 }

@@ -23,26 +23,25 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
-    {
-        ans++;
-        if(k*ans % 10 == r)
-        {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
-        }
-    }
+    int n;
+    cin >> n;
+    if(n <= 1399)
+    cout << "Division 4";
+    else if(n >=1400 && n <= 1599)
+    cout << "Division 3";
+    else if(n >= 1600 && n <= 1899)
+    cout << "Division 2";
+    else
+    cout << "Division 1";
+    cout  << nline;
 }
 
 int main(){
-    achojayebas();
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        achojayebas();
+    }
     return 0;
 }

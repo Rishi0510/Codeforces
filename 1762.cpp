@@ -1,0 +1,82 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,a,b) for(int i=a;i<b;i++)
+#define ll long long 
+#define pb(x) push_back(x)
+#define in(x) int x; cin>>x;
+#define lin(x) long long int x; cin>>x;
+#define instr(x) string x; cin>>x;
+#define nline "\n"
+#define yes cout << "YES" << nline;
+#define no  cout << "NO"  << nline;
+#define debug(x) cout << #x << " " << x << nline;
+typedef vector<int> vi;
+typedef map<int,int> mii;
+typedef map<char,int> mci;
+
+
+// FUNCTION FOR GCD
+int gcd(int a, int b)
+{ 
+    if (a == 0) return b;  if (b == 0) return a; if (a == b) return a; if (a > b) return gcd(a-b, b); else return gcd(a, b-a);
+}
+
+void achojayebas()
+{
+    int n;
+    cin >> n;
+    int arr[n];
+    mii m;
+    int sum = 0;
+    rep(i,0,n)
+    {
+        cin >> arr[i];
+        sum+=arr[i];
+        m[arr[i]]++;
+    }
+    if(sum&1)
+    {
+        sort(arr,arr+n);
+        for(int i=0;i<n;i++)
+        {
+            int cnt = 0;
+            if(arr[i]&1)
+            {
+                while(arr[i] > 0)
+                {
+                    arr[i]/=2;
+                    cnt++;
+                }
+
+                cout << cnt << nline;
+                return;
+            }
+            else
+            {
+                while(arr[i] != 1)
+                {
+                    arr[i]/=2;
+                    cnt++;
+                }
+                cout << cnt << nline;
+                return;
+            }
+        }
+    }
+    else
+    {
+        cout << 0 << nline;
+        return;
+    }
+    
+}
+
+int main(){
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        achojayebas();
+    }
+    return 0;
+}

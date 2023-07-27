@@ -23,23 +23,38 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    string s;
+    cin >> s;
+    bool check;
+    string temp = s;
+    if(s.size() == 1)
     {
-        ans++;
-        if(k*ans % 10 == r)
+        int c = s[0];
+        if(islower(c))
+        s[0] = toupper(c);
+        else
+        s[0] = tolower(c);
+        return;
+    }
+    else
+    {
+        for(int i=1;i<s.size();i++)
         {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
+            if(islower(s[i]))
+            check = false;
+            else
+            {
+                int c = s[i];
+                s[i] = tolower(c);
+            }
         }
     }
+
+    if( check == false)
+    cout << temp << nline;
+    else
+    cout << s << nline;
+    
 }
 
 int main(){

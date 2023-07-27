@@ -23,21 +23,21 @@ int gcd(int a, int b)
 
 void achojayebas()
 {
-    int k,r;
-    cin >> k >> r;
-    int ans =0;
-    while(true)
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    cin >> arr[i];
+
+    int mul = 1;
+    for(int i=0;i<n;i++)
     {
-        ans++;
-        if(k*ans % 10 == r)
+        if(arr[i]%2 == 0)
+        cout << arr[i]/2 << nline;
+        else
         {
-            cout << ans << nline;
-            return;
-        }
-        if(k*ans%10 == 0)
-        {
-            cout << ans << nline;
-            return;
+            cout << (arr[i]+mul)/2 << nline;
+            mul*=-1;
         }
     }
 }
